@@ -22,6 +22,7 @@ import java.util.Iterator;
 public class PushPlugin extends CordovaPlugin {
 	public static final String TAG = "PushPlugin";
 
+	public static final String GET_INSTALLATION_OBJECT_ID = "getInstallationObjectId";
 	public static final String REGISTER = "register";
 	public static final String UNREGISTER = "unregister";
 	public static final String EXIT = "exit";
@@ -47,7 +48,12 @@ public class PushPlugin extends CordovaPlugin {
 
 		Log.v(TAG, "execute: action=" + action);
 
-		if (REGISTER.equals(action)) {
+		if (GET_INSTALLATION_OBJECT_ID.equals(action)) {
+
+      String objectId = ParseInstallation.getCurrentInstallation().getObjectId();
+      callbackContext.success(objectId);
+
+		}else if (REGISTER.equals(action)) {
 
 			Log.v(TAG, "execute: data=" + data.toString());
 
