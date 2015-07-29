@@ -71,9 +71,10 @@ public class GCMIntentService extends GCMBaseIntentService {
 			else {
 				extras.putBoolean("foreground", false);
 
+                createNotification(context, extras);
+                
                 // Send a notification if there is a message
                 if (extras.getString("message") != null && extras.getString("message").length() != 0) {
-                    createNotification(context, extras);
                 }
             }
         }
@@ -108,10 +109,10 @@ public class GCMIntentService extends GCMBaseIntentService {
 				.setContentIntent(contentIntent)
 				.setAutoCancel(true);
 
-		String message = extras.getString("message");
-		if (message != null) {
-			mBuilder.setContentText(message);
-		} else {
+		try{
+			JSONObject data = new JSONObject(extras.getString("data"));
+			mBuilder.setContentText(data.getString("alert"));
+		}catch(Exception e){
 			mBuilder.setContentText("<missing message content>");
 		}
 

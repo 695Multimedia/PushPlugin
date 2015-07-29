@@ -7,14 +7,12 @@
     version="2.5.0">
 
   <name>PushPlugin</name>
-	<author>Bob Easterday</author>
+	<author>Bob Easterday - Converted for Parse.com by Steven Settlemyre</author>
 
 	<description>
-		This plugin allows your application to receive push notifications on Android, iOS, WP8 and Windows8 devices.
+		This plugin allows your application to receive push notifications on Android and iOS devices.
     Android uses Google Cloud Messaging.
     iOS uses Apple APNS Notifications.
-    WP8 uses Microsoft MPNS Notifications.
-    Windows8 uses Microsoft WNS Notifications.
 	</description>
 
 	<license>MIT</license>
@@ -59,11 +57,14 @@
 			<service android:name="com.plugin.gcm.GCMIntentService" />
 		</config-file>
 
-		<source-file src="src/android/libs/gcm.jar" target-dir="libs/" />
+        <source-file src="src/android/libs/Parse.jar" target-dir="libs/" />
+        <source-file src="src/android/libs/bolts-android.jar" target-dir="libs/" />
+        <source-file src="src/android/libs/gcm.jar" target-dir="libs/" />
 		<source-file src="src/android/com/plugin/gcm/CordovaGCMBroadcastReceiver.java" target-dir="src/com/plugin/gcm/" />
 		<source-file src="src/android/com/plugin/gcm/GCMIntentService.java" target-dir="src/com/plugin/gcm/" />
 		<source-file src="src/android/com/plugin/gcm/PushHandlerActivity.java" target-dir="src/com/plugin/gcm/" />
-		<source-file src="src/android/com/plugin/gcm/PushPlugin.java" target-dir="src/com/plugin/gcm/" />
+        <source-file src="src/android/com/plugin/gcm/PushPlugin.java" target-dir="src/com/plugin/gcm/" />
+		<source-file src="src/android/com/plugin/gcm/MyApplication.java" target-dir="src/com/plugin/gcm/" />
 
 	</platform>
 

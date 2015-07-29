@@ -62,7 +62,7 @@ public class PushPlugin extends CordovaPlugin {
 
 				Log.v(TAG, "execute: ECB=" + gECB + " senderID=" + gSenderID);
 
-				GCMRegistrar.register(getApplicationContext(), gSenderID);
+				// GCMRegistrar.register(getApplicationContext(), gSenderID);
 				result = true;
 				callbackContext.success();
 			} catch (JSONException e) {
