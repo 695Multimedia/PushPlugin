@@ -17,6 +17,7 @@ import java.util.Iterator;
 
 /**
  * @author awysocki
+ * @modified by Steven Settlemyre, 695 Multimedia (sixninefive.com)
  */
 
 public class PushPlugin extends CordovaPlugin {
